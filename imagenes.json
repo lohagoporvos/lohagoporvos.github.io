@@ -10,8 +10,8 @@
   },
 
   "perfil": {
-    "_nota": "Foto para la sección 'Sobre mí'. Subí tu foto a imag/ y poné el nombre acá.",
-    "imagen": "foto perfil.png"
+    "_nota": "imag/foto perfil.png",
+    "imagen": "imag/foto perfil.png"
   },
 
   "categorias": [
