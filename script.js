@@ -258,39 +258,59 @@
     if (contactCard) { contactCard.classList.add('reveal', 'reveal--up'); obs.observe(contactCard); }
   }
 
-  /* ===== CURSOR SPARKLE TRAIL (desktop only) ===== */
+  /* ===== CURSOR SPARKLE TRAIL — chispitas de brillo (desktop only) ===== */
   function initCursorSparkles() {
     if (window.matchMedia('(hover: none)').matches) return;
     let lastX = 0, lastY = 0, frame = 0;
     const colors = [
-      'rgba(166,123,197,.9)',
-      'rgba(201,168,232,.8)',
-      'rgba(139,93,175,.85)',
-      'rgba(74,32,116,.7)',
-      'rgba(220,190,245,.9)'
+      '#C9A8E8', '#A67BC5', '#8B5DAF',
+      '#DBC8F0', '#E8D8F5', '#D4A8FF'
     ];
+    const types = ['star', 'star', 'star', 'diamond', 'diamond', 'dot'];
+
     document.addEventListener('mousemove', e => {
       const dx = e.clientX - lastX, dy = e.clientY - lastY;
       const dist = Math.sqrt(dx * dx + dy * dy);
       lastX = e.clientX; lastY = e.clientY;
       frame++;
-      // emit sparkle every 3rd frame or when moving fast enough
-      if (frame % 3 !== 0 && dist < 8) return;
-      const spark = document.createElement('div');
-      spark.className = 'cursor-sparkle';
-      const size = 4 + Math.random() * 8;
+      if (frame % 3 !== 0 && dist < 6) return;
+      // Limit active sparkles for performance
+      if (document.querySelectorAll('.cursor-sparkle').length > 35) return;
+
+      const type = types[Math.floor(Math.random() * types.length)];
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const offsetX = (Math.random() - .5) * 14;
-      const offsetY = (Math.random() - .5) * 14;
-      spark.style.cssText = `
-        position:fixed;pointer-events:none;z-index:9998;
-        width:${size}px;height:${size}px;border-radius:50%;
-        left:${e.clientX + offsetX}px;top:${e.clientY + offsetY}px;
-        background:radial-gradient(circle,${color} 0%,transparent 70%);
-        box-shadow:0 0 ${size}px 2px ${color};
-        animation:sparkle-fade ${.5 + Math.random() * .4}s ease-out forwards;
-        transform:translate(-50%,-50%);
-      `;
+      const offsetX = (Math.random() - .5) * 18;
+      const offsetY = (Math.random() - .5) * 18;
+      const dur = (.4 + Math.random() * .4).toFixed(2);
+
+      const spark = document.createElement('div');
+      spark.className = 'cursor-sparkle cursor-sparkle--' + type;
+
+      if (type === 'star') {
+        const armLen = 6 + Math.random() * 10;
+        const thick = 1.5 + Math.random() * 1.5;
+        spark.style.cssText = `
+          left:${e.clientX + offsetX}px;top:${e.clientY + offsetY}px;
+          width:${armLen}px;height:${armLen}px;
+          --spark-color:${color};--spark-w:${thick}px;--spark-h:${armLen}px;
+          --spark-dur:${dur}s;
+        `;
+      } else if (type === 'diamond') {
+        const size = 3 + Math.random() * 5;
+        spark.style.cssText = `
+          left:${e.clientX + offsetX}px;top:${e.clientY + offsetY}px;
+          width:${size}px;height:${size}px;
+          --spark-color:${color};--spark-dur:${dur}s;
+        `;
+      } else {
+        const size = 2 + Math.random() * 3;
+        spark.style.cssText = `
+          left:${e.clientX + offsetX}px;top:${e.clientY + offsetY}px;
+          width:${size}px;height:${size}px;
+          --spark-color:${color};--spark-dur:${dur}s;
+        `;
+      }
+
       document.body.appendChild(spark);
       spark.addEventListener('animationend', () => spark.remove());
     });

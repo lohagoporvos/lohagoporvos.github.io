@@ -394,19 +394,63 @@ ul { list-style: none; }
 .lightbox__next:hover { transform: translateY(-50%) scale(1.2); }
 .lightbox__counter { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.6); font-size: .9rem; }
 
-/* ===== CURSOR SPARKLE TRAIL ===== */
+/* ===== CURSOR SPARKLE TRAIL — chispitas de brillo ===== */
 .cursor-sparkle {
   position: fixed; pointer-events: none; z-index: 9998;
-  width: 8px; height: 8px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(166,123,197,.9) 0%, rgba(201,168,232,.6) 40%, transparent 70%);
-  box-shadow: 0 0 6px 2px rgba(166,123,197,.4), 0 0 12px 4px rgba(201,168,232,.2);
-  animation: sparkle-fade .7s ease-out forwards;
   transform: translate(-50%,-50%);
 }
-@keyframes sparkle-fade {
+/* Estrella de 4 puntas — forma de brillo real */
+.cursor-sparkle--star {
+  width: 0; height: 0;
+  background: none;
+  clip-path: none;
+}
+.cursor-sparkle--star::before,
+.cursor-sparkle--star::after {
+  content: ''; position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 1px;
+}
+.cursor-sparkle--star::before {
+  width: var(--spark-w, 2px); height: var(--spark-h, 12px);
+  background: linear-gradient(180deg, transparent 0%, var(--spark-color) 40%, #fff 50%, var(--spark-color) 60%, transparent 100%);
+}
+.cursor-sparkle--star::after {
+  width: var(--spark-h, 12px); height: var(--spark-w, 2px);
+  background: linear-gradient(90deg, transparent 0%, var(--spark-color) 40%, #fff 50%, var(--spark-color) 60%, transparent 100%);
+}
+.cursor-sparkle--star { animation: sparkle-star-fade var(--spark-dur, .6s) ease-out forwards; }
+
+/* Diamante pequeño */
+.cursor-sparkle--diamond {
+  background: var(--spark-color);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: 0 0 4px 1px var(--spark-color);
+  animation: sparkle-diamond-fade var(--spark-dur, .5s) ease-out forwards;
+}
+
+/* Punto diminuto de brillo */
+.cursor-sparkle--dot {
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 3px 1px var(--spark-color), 0 0 8px 2px var(--spark-color);
+  animation: sparkle-dot-fade var(--spark-dur, .4s) ease-out forwards;
+}
+
+@keyframes sparkle-star-fade {
+  0%   { opacity: 1; transform: translate(-50%,-50%) scale(.3) rotate(0deg); }
+  30%  { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(20deg); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(.1) rotate(45deg); }
+}
+@keyframes sparkle-diamond-fade {
+  0%   { opacity: .9; transform: translate(-50%,-50%) scale(.5) rotate(0deg); }
+  40%  { opacity: 1; transform: translate(-50%,-50%) scale(1.1) rotate(30deg); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(60deg); }
+}
+@keyframes sparkle-dot-fade {
   0%   { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-  50%  { opacity: .6; transform: translate(-50%,-50%) scale(1.2) rotate(90deg); }
-  100% { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(180deg); }
+  100% { opacity: 0; transform: translate(-50%,-50%) scale(0); }
 }
 
 /* ===== SCROLL ANIMATIONS ===== */
