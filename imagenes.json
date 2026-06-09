@@ -1,17 +1,16 @@
 {
   "_INSTRUCCIONES": {
-    "como_funciona": "Este archivo controla TODAS las imágenes de la página. Editalo y recargá la página para ver los cambios.",
-    "agregar_foto": "1) Poné la foto nueva en la carpeta 'imag/'. 2) Agregá el nombre del archivo en el array 'imagenes' del producto correspondiente. 3) Recargá la página.",
-    "cambiar_portada": "Cambiá el valor de 'portada' por el nombre del archivo que querés como imagen principal de la ficha del producto.",
-    "quitar_foto": "Eliminá el nombre del archivo del array 'imagenes'. Si era la portada, cambiá 'portada' también.",
-    "agregar_producto": "Copiá la estructura de un producto existente, cambiá id/nombre/descripcion/imagenes y agregalo dentro de la categoría correspondiente.",
-    "foto_perfil": "Cambiá 'perfil.imagen' por el nombre de tu foto de perfil (la foto debe estar en la carpeta 'imag/').",
-    "formato_fotos": "Usá archivos .jpg o .webp. Tamaño recomendado: 800x600 px mínimo. Comprimí las fotos para que carguen rápido."
+    "como_funciona": "Este archivo controla TODAS las imágenes de la página. Editalo y recargá para ver cambios.",
+    "agregar_foto": "1) Poné la foto en la subcarpeta del producto dentro de 'imag/'. 2) Agregá 'nombre-subcarpeta/nombre-archivo.jpg' al array 'imagenes'. 3) Recargá.",
+    "cambiar_portada": "Cambiá 'portada' por la ruta de la foto que querés como principal.",
+    "quitar_foto": "Eliminá la ruta del array 'imagenes'. Si era la portada, cambiá 'portada' también.",
+    "foto_perfil": "Cambiá 'perfil.imagen' por la ruta de tu foto (ej: 'perfil/mi-foto.jpg').",
+    "formato_fotos": "Usá .jpg o .webp. Mínimo 800x600px. Comprimí para carga rápida."
   },
 
   "perfil": {
-    "_nota": "Foto para la sección 'Sobre mí'. Subí tu foto a imag/ y poné el nombre acá.",
-    "imagen": "foto-perfil.jpg"
+    "_nota": "Subí tu foto a imag/perfil/ y poné la ruta acá.",
+    "imagen": ""
   },
 
   "categorias": [
@@ -25,41 +24,41 @@
           "id": "milanesas",
           "nombre": "Milanesas",
           "descripcion": "De carne, pollo y cerdo. Rebozadas a mano con pan rallado casero. Grandes, crocantes y jugosas.",
-          "portada": "milanesas.jpg",
-          "imagenes": ["milanesas.jpg", "milanesas-pack.jpg", "milanesas-close.jpg"],
+          "portada": "milenesas/milanesas.jpg",
+          "imagenes": ["milenesas/milanesas.jpg", "milenesas/milanesas-pack.jpg", "milenesas/milanesas-close.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Milanesas 🥩"
         },
         {
           "id": "empanadas",
           "nombre": "Empanadas",
           "descripcion": "Repulgadas una por una. Carne, humita, verdura, pollo, jamón y queso. Para horno o freír.",
-          "portada": "empanadas.jpg",
-          "imagenes": ["empanadas.jpg", "empanadas-2.jpg", "empanadas-top.jpg"],
+          "portada": "empanadas/empanadas.jpg",
+          "imagenes": ["empanadas/empanadas.jpg", "empanadas/empanadas-top.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Empanadas 🥟"
         },
         {
           "id": "hamburguesas",
           "nombre": "Hamburguesas Caseras",
           "descripcion": "Clásicas, 100% carne, condimentadas como corresponde. Directo a la plancha.",
-          "portada": "hamburguesas.jpg",
+          "portada": "",
           "imagenes": [],
-          "_nota": "SIN FOTO TODAVÍA. Subí la foto a imag/hamburguesas.jpg y agregala al array 'imagenes'."
+          "mensaje_wa": "Hola! Quiero pedir Hamburguesas caseras 🍔"
         },
         {
           "id": "mini-tartas",
           "nombre": "Mini Tartas",
           "descripcion": "Cebolla y queso, calabaza y queso, brócoli, humita y atún. Ideales para resolver la cena rápido.",
-          "portada": "mini-tartas-calabaza.jpg",
+          "portada": "mini tartas/mini-tartas-calabaza.jpg",
           "imagenes": [
-            "mini-tartas-calabaza.jpg",
-            "mini-tartas-jamon.jpg",
-            "mini-tartas-verdura.jpg",
-            "mini-tartas-zapallito.jpg",
-            "mini-tartas-crudas.jpg",
-            "mini-tartas-mesa.jpg",
-            "mini-tartas-queso.jpg",
-            "mini-tartas-baked.jpg",
-            "tartas-grandes.jpg"
+            "mini tartas/mini-tartas-calabaza.jpg",
+            "mini tartas/mini-tartas-jamon.jpg",
+            "mini tartas/mini-tartas-verdura.jpg",
+            "mini tartas/mini-tartas-zapallito.jpg",
+            "mini tartas/mini-tartas-crudas.jpg",
+            "mini tartas/mini tarta.jpg",
+            "mini tartas/mini-tartas-queso.jpg",
+            "mini tartas/mini-tartas-baked.jpg",
+            "mini tartas/tartas-grandes.jpg"
           ],
           "mensaje_wa": "Hola! Quiero pedir Mini Tartas 🥧"
         }
@@ -75,17 +74,32 @@
           "id": "pastel-papas",
           "nombre": "Pastel de Papas",
           "descripcion": "El clásico de siempre. Carne jugosa abajo, puré gratinado arriba. Abundante y reconfortante.",
-          "portada": "pastel-papas-4.jpg",
-          "imagenes": ["pastel-papas-4.jpg", "pastel-papas-5.jpg", "pastel-papas-1.jpg", "pastel-papas-2.jpg", "pastel-papas-3.jpg"],
+          "portada": "pastel de papas/pastel de papas-0.jpg",
+          "imagenes": [
+            "pastel de papas/pastel de papas-0.jpg",
+            "pastel de papas/pastel-papas-4.jpg",
+            "pastel de papas/pastel-papas-5.jpg",
+            "pastel de papas/pastel-papas-1.jpg",
+            "pastel de papas/pastel-papas-2.jpg",
+            "pastel de papas/pastel-papas-3.jpg"
+          ],
           "mensaje_wa": "Hola! Quiero pedir Pastel de Papas 🥘"
         },
         {
           "id": "guiso-lentejas",
           "nombre": "Guiso de Lentejas",
           "descripcion": "Bien espeso, con verduras, chorizo y todo el sabor de una cocción lenta y cuidada.",
-          "portada": "guiso-lentejas.jpg",
-          "imagenes": ["guiso-lentejas.jpg", "locro.jpg"],
+          "portada": "guiso lentejas/guiso-lentejas.jpg",
+          "imagenes": ["guiso lentejas/guiso-lentejas.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Guiso de Lentejas 🍲"
+        },
+        {
+          "id": "locro",
+          "nombre": "Locro",
+          "descripcion": "El plato criollo por excelencia. Con maíz, porotos, carne, chorizo y la tradición de siempre.",
+          "portada": "locro/locro.jpg",
+          "imagenes": ["locro/locro.jpg"],
+          "mensaje_wa": "Hola! Quiero pedir Locro 🇦🇷"
         }
       ]
     },
@@ -99,56 +113,56 @@
           "id": "torta-ricota",
           "nombre": "Torta de Ricota",
           "descripcion": "24 cm. Suave, cremosa, espolvoreada con azúcar impalpable. También disponible con dulce de leche.",
-          "portada": "torta-ricota.jpg",
-          "imagenes": ["torta-ricota.jpg"],
+          "portada": "torta ricota/torta-ricota.jpg",
+          "imagenes": ["torta ricota/torta-ricota.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Torta de Ricota 🍰"
         },
         {
           "id": "torta-cabsha",
           "nombre": "Torta CABSHA",
           "descripcion": "24 cm. Chocolate, dulce de leche y esa combinación que no falla. Para los golosos de verdad.",
-          "portada": "torta-cabsha.jpg",
-          "imagenes": ["torta-cabsha.jpg"],
+          "portada": "torta cabsha/mini-tartas-mesa.jpg",
+          "imagenes": ["torta cabsha/mini-tartas-mesa.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Torta Cabsha 🍫"
         },
         {
           "id": "budin-chocolate",
           "nombre": "Budín de Chocolate",
           "descripcion": "Con chips de chocolate y baño de chocolate. Intenso, húmedo y adictivo.",
-          "portada": "budin-chocolate.jpg",
-          "imagenes": ["budin-chocolate.jpg"],
+          "portada": "budines/budin-chocolate.jpg",
+          "imagenes": ["budines/budin-chocolate.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Budín de Chocolate 🍫"
         },
         {
           "id": "budines",
           "nombre": "Budines Grandes",
           "descripcion": "Vainilla, limón o marmolado. Perfectos para acompañar el mate o llevar de regalo.",
-          "portada": "budines.jpg",
+          "portada": "",
           "imagenes": [],
-          "_nota": "SIN FOTO TODAVÍA. Subí la foto a imag/budines.jpg y agregala al array 'imagenes'."
+          "mensaje_wa": "Hola! Quiero pedir Budines 🧁"
         },
         {
           "id": "carrot-cake",
           "nombre": "Carrot Cake",
           "descripcion": "Con nueces y glaseado cremoso. Húmedo, aromático y con ese toque especial.",
-          "portada": "carrot-cake.jpg",
-          "imagenes": ["carrot-cake.jpg"],
+          "portada": "carrot cake/carrot-cake.jpg",
+          "imagenes": ["carrot cake/carrot-cake.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Carrot Cake 🥕"
         },
         {
           "id": "crumble",
           "nombre": "Crumble de Manzanas",
           "descripcion": "Manzanas horneadas con cobertura crocante. Tibio es otra cosa.",
-          "portada": "crumble.jpg",
-          "imagenes": [],
-          "_nota": "SIN FOTO TODAVÍA. Subí la foto a imag/crumble.jpg y agregala al array 'imagenes'."
+          "portada": "Crumble Manzana/tarta-calabaza.jpg",
+          "imagenes": ["Crumble Manzana/tarta-calabaza.jpg"],
+          "mensaje_wa": "Hola! Quiero pedir Crumble de Manzanas 🍎"
         },
         {
           "id": "pasta-frola",
           "nombre": "Pasta Frola Mixta",
           "descripcion": "De membrillo y batata. Masa casera con enrejado tradicional. El clásico que nunca falla.",
-          "portada": "pasta-frola.jpg",
-          "imagenes": ["pasta-frola.jpg"],
+          "portada": "pastafrola/pasta-frola.jpg",
+          "imagenes": ["pastafrola/pasta-frola.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Pasta Frola 🥧"
         }
       ]
@@ -163,8 +177,8 @@
           "id": "escabeche",
           "nombre": "Escabeche de Berenjenas",
           "descripcion": "Frasco de 600g. Con ajo y condimentos. Artesanal, para picar, acompañar o regalar.",
-          "portada": "escabeche.jpg",
-          "imagenes": ["escabeche.jpg"],
+          "portada": "escabeche/escabeche.jpg",
+          "imagenes": ["escabeche/escabeche.jpg"],
           "mensaje_wa": "Hola! Quiero pedir Escabeche de Berenjenas 🫙"
         }
       ]
@@ -172,26 +186,26 @@
   ],
 
   "galeria": {
-    "_nota": "Imágenes que aparecen en la sección Galería. Agregá o quitá nombres de archivos.",
+    "_nota": "Imágenes para la sección Galería.",
     "imagenes": [
-      "empanadas.jpg",
-      "empanadas-top.jpg",
-      "milanesas.jpg",
-      "mini-tartas-calabaza.jpg",
-      "mini-tartas-jamon.jpg",
-      "mini-tartas-zapallito.jpg",
-      "guiso-lentejas.jpg",
-      "locro.jpg",
-      "torta-ricota.jpg",
-      "torta-cabsha.jpg",
-      "budin-chocolate.jpg",
-      "carrot-cake.jpg",
-      "tarta-calabaza.jpg",
-      "pasta-frola.jpg",
-      "escabeche.jpg",
-      "pastel-papas-4.jpg",
-      "tartas-grandes.jpg",
-      "mini-tartas-mesa.jpg"
+      "empanadas/empanadas.jpg",
+      "empanadas/empanadas-top.jpg",
+      "milenesas/milanesas.jpg",
+      "mini tartas/mini-tartas-calabaza.jpg",
+      "mini tartas/mini-tartas-jamon.jpg",
+      "mini tartas/mini-tartas-zapallito.jpg",
+      "guiso lentejas/guiso-lentejas.jpg",
+      "locro/locro.jpg",
+      "torta ricota/torta-ricota.jpg",
+      "torta cabsha/mini-tartas-mesa.jpg",
+      "budines/budin-chocolate.jpg",
+      "carrot cake/carrot-cake.jpg",
+      "Crumble Manzana/tarta-calabaza.jpg",
+      "pastafrola/pasta-frola.jpg",
+      "escabeche/escabeche.jpg",
+      "pastel de papas/pastel de papas-0.jpg",
+      "mini tartas/tartas-grandes.jpg",
+      "mini tartas/mini tarta.jpg"
     ]
   }
 }
