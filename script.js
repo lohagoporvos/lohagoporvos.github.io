@@ -173,7 +173,7 @@
     img.src = IMG_BASE + perfil.imagen;
     img.alt = 'Graciela';
     img.className = 'about__img';
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1';
+    img.style.cssText = 'width:100%;height:auto;display:block;border-radius:inherit;position:relative;z-index:1';
     img.onerror = () => { img.remove(); };
     img.onload = () => {
       const ph = wrap.querySelector('.about__img-placeholder');

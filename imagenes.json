@@ -9,8 +9,8 @@
   },
 
   "perfil": {
-    "_nota": "Subí tu foto a imag/perfil/ y poné la ruta acá.",
-    "imagen": ""
+    "_nota": "Subí tu foto a imag/ y poné la ruta acá.",
+    "imagen": "foto perfil.png"
   },
 
   "categorias": [
