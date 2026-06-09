@@ -333,8 +333,24 @@
     }
   }
 
+  /* ===== PRELOADER ===== */
+  function hidePreloader() {
+    const pre = document.getElementById('preloader');
+    if (!pre) return;
+    pre.classList.add('hidden');
+    pre.addEventListener('transitionend', () => pre.remove(), { once: true });
+  }
+
   bindWa();
   initParticles();
   initCursorSparkles();
   init();
+
+  // Hide preloader after content loads (min 2.2s for the bar animation)
+  const preloaderMin = new Promise(r => setTimeout(r, 2400));
+  const pageLoad = new Promise(r => {
+    if (document.readyState === 'complete') r();
+    else window.addEventListener('load', r, { once: true });
+  });
+  Promise.all([preloaderMin, pageLoad]).then(hidePreloader);
 })();
