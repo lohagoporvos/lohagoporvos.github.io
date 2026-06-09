@@ -249,11 +249,29 @@ ul { list-style: none; }
   90% { opacity: 1; }
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
-.hero__content { position: relative; z-index: 2; padding: 100px 20px 60px; max-width: 680px; }
+.hero__content {
+  position: relative; z-index: 2; padding: 100px 20px 60px;
+  max-width: 680px; width: 100%;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.hero__logo-wrap {
+  position: relative; margin-bottom: 32px;
+  display: flex; align-items: center; justify-content: center;
+}
 .hero__logo {
-  width: 120px; height: 120px; object-fit: contain;
-  margin-bottom: 24px; filter: drop-shadow(0 6px 20px rgba(166,123,197,.5));
+  width: clamp(160px, 30vw, 220px); height: clamp(160px, 30vw, 220px);
+  object-fit: contain; position: relative; z-index: 2;
+  filter: drop-shadow(0 0 30px rgba(166,123,197,.6)) drop-shadow(0 0 60px rgba(139,93,175,.3));
   animation: heartbeat 1.4s ease-in-out infinite;
+}
+/* Glow pulsante detrás del logo hero */
+.hero__logo-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(166,123,197,.35) 0%, rgba(139,93,175,.12) 40%, transparent 70%);
+  animation: preloader-glow 1.4s ease-in-out infinite;
+  filter: blur(25px); pointer-events: none;
 }
 
 /* ===== HEARTBEAT — latido para todos los logos ===== */
@@ -271,7 +289,7 @@ ul { list-style: none; }
 }
 .hero__subtitle {
   font-size: 1.05rem; color: rgba(255,255,255,.78);
-  line-height: 1.7; margin-bottom: 32px; max-width: 520px;
+  line-height: 1.7; margin-bottom: 32px; max-width: 520px; text-align: center;
 }
 
 /* ===== ABOUT ===== */

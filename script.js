@@ -316,6 +316,69 @@
     });
   }
 
+  /* ===== SPARKLES ON HEARTBEAT LOGOS ===== */
+  function initLogoSparkles() {
+    const colors = ['#C9A8E8','#A67BC5','#8B5DAF','#DBC8F0','#E8D8F5','#D4A8FF'];
+    const types = ['star','star','diamond','dot'];
+
+    function emitBurst(el) {
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const radius = Math.max(rect.width, rect.height) / 2;
+      const count = 6 + Math.floor(Math.random() * 5);
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const dist = radius * (.4 + Math.random() * .8);
+        const x = cx + Math.cos(angle) * dist;
+        const y = cy + Math.sin(angle) * dist;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const type = types[Math.floor(Math.random() * types.length)];
+        const dur = (.4 + Math.random() * .5).toFixed(2);
+        const spark = document.createElement('div');
+        spark.className = 'cursor-sparkle cursor-sparkle--' + type;
+        if (type === 'star') {
+          const arm = 6 + Math.random() * 12;
+          const thick = 1.5 + Math.random() * 2;
+          spark.style.cssText = `left:${x}px;top:${y}px;width:${arm}px;height:${arm}px;--spark-color:${color};--spark-w:${thick}px;--spark-h:${arm}px;--spark-dur:${dur}s;`;
+        } else if (type === 'diamond') {
+          const sz = 3 + Math.random() * 6;
+          spark.style.cssText = `left:${x}px;top:${y}px;width:${sz}px;height:${sz}px;--spark-color:${color};--spark-dur:${dur}s;`;
+        } else {
+          const sz = 2 + Math.random() * 4;
+          spark.style.cssText = `left:${x}px;top:${y}px;width:${sz}px;height:${sz}px;--spark-color:${color};--spark-dur:${dur}s;`;
+        }
+        document.body.appendChild(spark);
+        spark.addEventListener('animationend', () => spark.remove());
+      }
+    }
+
+    // Emit sparkles synced with heartbeat peaks (at 14% and 42% of 1.4s = ~196ms and ~588ms)
+    function startBursts(selector) {
+      const el = document.querySelector(selector);
+      if (!el) return null;
+      function cycle() {
+        setTimeout(() => emitBurst(el), 196);
+        setTimeout(() => emitBurst(el), 588);
+      }
+      cycle();
+      return setInterval(cycle, 1400);
+    }
+
+    // Preloader logo sparkles
+    const preId = startBursts('.preloader__logo');
+    // Hero logo sparkles
+    const heroId = startBursts('.hero__logo');
+
+    // Stop preloader sparkles when preloader is removed
+    if (preId) {
+      const obs = new MutationObserver(() => {
+        if (!document.querySelector('.preloader__logo')) { clearInterval(preId); obs.disconnect(); }
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+
   /* ===== LOAD DATA ===== */
   async function init() {
     try {
@@ -344,6 +407,7 @@
   bindWa();
   initParticles();
   initCursorSparkles();
+  initLogoSparkles();
   init();
 
   // Hide preloader after content loads (min 2.2s for the bar animation)
