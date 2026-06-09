@@ -135,15 +135,21 @@ ul { list-style: none; }
 .nav__links a:hover::after { width: 100%; }
 
 @media (max-width: 640px) {
+  .header { padding-top: env(safe-area-inset-top, 0); }
+  .nav { height: 56px; }
+  .nav__logo-img { height: 36px; }
+  .nav__logo-text { font-size: .95rem; }
   .nav__toggle { display: flex; }
   .nav__links {
-    position: fixed; top: 64px; left: 0; right: 0;
+    position: fixed; top: 56px; top: calc(56px + env(safe-area-inset-top, 0));
+    left: 0; right: 0;
     background: rgba(250,246,255,.98); flex-direction: column;
     padding: 20px; gap: 16px; border-bottom: 1px solid var(--color-border);
-    transform: translateY(-120%); transition: transform var(--transition);
+    transform: translateY(-200%); transition: transform var(--transition);
     box-shadow: 0 8px 24px rgba(45,27,78,.08);
+    visibility: hidden;
   }
-  .nav__links.open { transform: translateY(0); }
+  .nav__links.open { transform: translateY(0); visibility: visible; }
 }
 
 /* ===== HERO ===== */
