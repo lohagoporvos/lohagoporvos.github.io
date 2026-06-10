@@ -153,8 +153,11 @@
           "id": "crumble",
           "nombre": "Crumble de Manzanas",
           "descripcion": "Manzanas horneadas con cobertura crocante. Tibio es otra cosa.",
-          "portada": "Crumble Manzana/tarta-calabaza.jpg",
-          "imagenes": ["Crumble Manzana/tarta-calabaza.jpg"],
+          "portada": "Crumble Manzana/Crumble 1.jpeg",
+          "imagenes": [
+                        "Crumble Manzana/Crumble 1.jpeg",
+                        "Crumble Manzana/Crumble 2.jpeg"
+                      ],
           "mensaje_wa": "Hola! Quiero pedir Crumble de Manzanas 🍎"
         },
         {
@@ -200,7 +203,8 @@
       "torta cabsha/mini-tartas-mesa.jpg",
       "budines/budin-chocolate.jpg",
       "carrot cake/carrot-cake.jpg",
-      "Crumble Manzana/tarta-calabaza.jpg",
+      "Crumble Manzana/Crumble 1.jpeg",
+      "Crumble Manzana/Crumble 2.jpeg",
       "pastafrola/pasta-frola.jpg",
       "escabeche/escabeche.jpg",
       "pastel de papas/pastel de papas-0.jpg",
